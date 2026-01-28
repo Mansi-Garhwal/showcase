@@ -1,0 +1,92 @@
+/* ===================== DESKTOP/LAPTOP LAYOUT ===================== */
+
+@media (min-width: 900px) {
+
+:root {
+  --panel-image-height: 750px; /* keep consistent with project-styles.css */
+  --panel-col-gap: 10px;       /* gap between stacked images */
+}
+
+.panel-image img {
+  height: 750px;
+  max-height: 750px;
+  width: auto;
+  object-fit: cover;
+  display: block;
+  box-sizing: border-box;
+}
+
+.plans-desktop {
+  display: block;
+}
+
+.plans-mobile {
+  display: none;
+}
+
+/* STACKED TWO-IMAGE COLUMN */
+.panel-col-image, .panel-col-image-last {
+  display: flex;
+  flex-direction: column;
+  gap: var(--panel-col-gap);
+  flex-shrink: 0;              /* keeps same width footprint inside horizontal track */
+  margin: 15px 0;              /* match other panel vertical margins */
+  box-sizing: border-box;
+  height: var(--panel-image-height);
+}
+
+/* each stacked image same height as other project images */
+.panel-col-image img, .panel-col-image-last img {
+  width: 100%;
+  height: calc((var(--panel-image-height) - var(--panel-col-gap)) / 2);
+  max-height: calc((var(--panel-image-height) - var(--panel-col-gap)) / 2);
+  object-fit: cover;           /* preserves aspect ratio while filling the box (may crop) */
+  display: block;
+}
+
+.panel-col-image-last {
+  margin-right: 10px;
+}
+}
+
+/* ===================== MOBILE LAYOUT ===================== */
+
+@media (max-width: 899px) {
+
+.proj-title {
+  font-size: 1.4rem;
+}
+
+/* Image panels become full-bleed within the page width */
+.panel-image, .plans-mobile, .panel-col-image, .panel-col-image-last {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 0 7px 0;
+  box-sizing: border-box;
+  display: block;
+}
+
+.panel-image img, .plans-mobile img, .panel-col-image img, .panel-col-image-last img {
+  width: 100% !important;
+  height: auto !important;                   /* natural height, no forced tall hero */
+  object-fit: cover;
+  display: block;
+  border-radius: 0px;
+}
+
+.plans-desktop {
+  display: none;
+}
+
+.plans-mobile {
+  display: flex !important;
+  flex-direction: column;     /* or column if you prefer */
+  gap: 15px;
+  margin-top: 30px !important;
+  margin-bottom: 30px !important;
+}
+
+.panel-col-image img, .panel-col-image-last img {
+  margin-bottom: 7px;
+}
+}

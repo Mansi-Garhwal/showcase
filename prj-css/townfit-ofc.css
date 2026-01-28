@@ -1,0 +1,65 @@
+/* ===================== DESKTOP/LAPTOP LAYOUT ===================== */
+
+@media (min-width: 900px) {
+
+:root {
+  --panel-image-height: 750px; /* keep consistent with project-styles.css */
+  --panel-col-gap: 10px;       /* gap between stacked images */
+}
+
+/* Make project images same as HOME images (same vertical margins & height) */
+.panel-image img {
+  height: 750px;
+  max-height: 750px;
+  width: auto;
+  object-fit: cover;
+  display: block;
+  box-sizing: border-box;
+  margin-right: 10px !important;
+}
+
+.panel-liner-text {
+  width: 600px;                /* keep your chosen width */
+  flex-shrink: 0;              /* don't shrink inside horizontal track */
+  height: var(--panel-image-height);   /* match image column height */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;   /* <-- pushes content to the bottom, lining up with image bottoms */
+  align-items: flex-start;
+  box-sizing: border-box;
+  margin: 0 15px;
+  font-weight: 500;
+  font-style: italic;
+  text-align: justify;
+  padding-bottom: 30px;
+}
+}
+
+/* ===================== MOBILE LAYOUT ===================== */
+
+@media (max-width: 899px) {
+
+/* Image panels become full-bleed within the page width */
+.panel-image, .panel-image-last {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 0 7px 0;
+  box-sizing: border-box;
+  display: block;
+}
+
+.panel-image img, .panel-image-last img {
+  width: 100% !important;
+  height: auto !important;                   /* natural height, no forced tall hero */
+  object-fit: cover;
+  display: block;
+  border-radius: 0px;
+}
+
+.panel-liner-text {
+  text-align: center;
+  margin: 30px 15px;
+  font-weight: 500;
+  font-style: italic;
+}
+}

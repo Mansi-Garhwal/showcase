@@ -1,0 +1,89 @@
+/* ===================== DESKTOP/LAPTOP LAYOUT ===================== */
+
+@media (min-width: 900px) {
+
+:root {
+  --panel-image-height: 750px; /* keep consistent with project-styles.css */
+  --panel-col-gap: 10px;       /* gap between stacked images */
+}
+
+/* Make project images same as HOME images (same vertical margins & height) */
+.panel-image img {
+  height: 750px;
+  max-height: 750px;
+  width: auto;
+  object-fit: cover;
+  display: block;
+  box-sizing: border-box;
+}
+
+.panel-liner-text {
+  width: 500px;                /* keep your chosen width */
+  flex-shrink: 0;              /* don't shrink inside horizontal track */
+  height: var(--panel-image-height);   /* match image column height */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;   /* <-- pushes content to the bottom, lining up with image bottoms */
+  align-items: flex-start;
+  box-sizing: border-box;
+  margin: 0 15px;
+  font-weight: 500;
+  font-style: italic;
+  text-align: justify;
+  padding-bottom: 70px;
+}
+
+/* STACKED TWO-IMAGE COLUMN */
+.panel-col-image {
+  display: flex;
+  flex-direction: column;
+  gap: var(--panel-col-gap);
+  flex-shrink: 0;              /* keeps same width footprint inside horizontal track */
+  margin: 15px 0;              /* match other panel vertical margins */
+  box-sizing: border-box;
+  height: var(--panel-image-height);
+  margin-right: 10px;
+}
+
+/* each stacked image same height as other project images */
+.panel-col-image img {
+  width: 100%;
+  height: calc((var(--panel-image-height) - var(--panel-col-gap)) / 2);
+  max-height: calc((var(--panel-image-height) - var(--panel-col-gap)) / 2);
+  object-fit: cover;           /* preserves aspect ratio while filling the box (may crop) */
+  display: block;
+}
+}
+
+/* ===================== MOBILE LAYOUT ===================== */
+
+@media (max-width: 899px) {
+
+/* Image panels become full-bleed within the page width */
+.panel-image, .panel-col-image {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 0 7px 0;
+  box-sizing: border-box;
+  display: block;
+}
+
+.panel-image img, .panel-col-image img {
+  width: 100% !important;
+  height: auto !important;                   /* natural height, no forced tall hero */
+  object-fit: cover;
+  display: block;
+  border-radius: 0px;
+}
+
+.panel-col-image img {
+  margin-bottom: 7px;
+}
+
+.panel-liner-text {
+  text-align: center;
+  margin: 30px 30px;
+  font-weight: 500;
+  font-style: italic;
+}
+}

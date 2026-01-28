@@ -1,0 +1,107 @@
+/* ===================== DESKTOP/LAPTOP LAYOUT ===================== */
+
+@media (min-width: 900px) {
+
+:root {
+  --panel-image-height: 750px; /* keep consistent with project-styles.css */
+  --panel-col-gap: 10px;       /* gap between stacked images */
+}
+
+/* Make project images same as HOME images (same vertical margins & height) */
+.panel-image img {
+  height: 750px;
+  max-height: 750px;
+  width: auto;
+  object-fit: cover;
+  display: block;
+  box-sizing: border-box;
+}
+
+/* STACKED TWO-IMAGE COLUMN */
+.panel-col-image, .panel-col-image-last {
+  display: flex;
+  flex-direction: column;
+  gap: var(--panel-col-gap);
+  flex-shrink: 0;              /* keeps same width footprint inside horizontal track */
+  margin: 15px 0;              /* match other panel vertical margins */
+  box-sizing: border-box;
+  height: var(--panel-image-height);
+}
+
+/* each stacked image same height as other project images */
+.panel-col-image img, .panel-col-image-last img {
+  width: 100%;
+  height: calc((var(--panel-image-height) - var(--panel-col-gap)) / 2);
+  max-height: calc((var(--panel-image-height) - var(--panel-col-gap)) / 2);
+  object-fit: cover;           /* preserves aspect ratio while filling the box (may crop) */
+  display: block;
+}
+
+.panel-col-image-last {
+  margin-right: 10px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;     /* stack image above text */
+  justify-content: flex-start;
+  align-items: center;         /* center text horizontally */
+  flex-shrink: 0;              /* stay same width as other panels */
+  height: var(--panel-image-height);   /* match height of other image panels */
+  box-sizing: border-box;
+  margin: 0 30px;
+}
+
+.column .panel-col-img img {
+  height: calc(var(--panel-image-height) - 50px);  
+  width: auto;
+  object-fit: cover;
+  display: block;
+}
+
+/* Liner text below the image */
+.column .panel-col-text {
+  width: 450px;
+  text-align: center;          /* center text below image */
+  font-style: italic;
+  font-weight: 500;
+  height: 100px;               /* matches the remaining column height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+}
+
+/* ===================== MOBILE LAYOUT ===================== */
+
+@media (max-width: 899px) {
+
+/* Image panels become full-bleed within the page width */
+.panel-image, .column .panel-col-img, .panel-col-image, .panel-col-image-last {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 0 7px 0;
+  box-sizing: border-box;
+  display: block;
+}
+
+.panel-image img, .column .panel-col-img img, .panel-col-image img, .panel-col-image-last img {
+  width: 100% !important;
+  height: auto !important;                   /* natural height, no forced tall hero */
+  object-fit: cover;
+  display: block;
+  border-radius: 0px;
+}
+
+.panel-col-image img, .panel-col-image-last img {
+  margin-bottom: 7px;
+}
+
+.column .panel-col-text {
+  text-align: center;
+  margin: 30px 30px;
+  font-weight: 500;
+  font-style: italic;
+}
+}

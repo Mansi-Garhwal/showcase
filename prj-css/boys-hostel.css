@@ -1,0 +1,161 @@
+/* ===================== DESKTOP/LAPTOP LAYOUT ===================== */
+
+@media (min-width: 900px) {
+
+:root {
+  --panel-image-height: 750px; /* keep consistent with project-styles.css */
+  --panel-col-gap: 10px;       /* gap between stacked images */
+}
+
+.panel-image-plan {
+  margin-right: 30px;
+}
+
+.section-desktop {
+  display: block;
+}
+
+.section-mobile {
+  display: none;
+}
+
+/* Make project images same as HOME images (same vertical margins & height) */
+.panel-image-plan img, .section-desktop img {
+  height: 750px;
+  max-height: 750px;
+  width: auto;
+  object-fit: cover;
+  display: block;
+  box-sizing: border-box;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;     /* stack image above text */
+  justify-content: flex-start;
+  align-items: center;         /* center text horizontally */
+  flex-shrink: 0;              /* stay same width as other panels */
+  height: var(--panel-image-height);   /* match height of other image panels */
+  box-sizing: border-box;
+  width: 450px;
+  margin: 0 30px;
+}
+
+.column .panel-image-r-plan img {
+  height: calc(var(--panel-image-height) - 100px);  
+  width: auto;
+  object-fit: cover;
+  display: block;
+  transform: scale(-0.8);
+  margin-top: -50px;
+  margin-left: 40px;
+}
+
+/* Liner text below the image */
+.column .panel-col-text {
+  width: 100%;
+  text-align: center;          /* center text below image */
+  margin-top: 70px;
+  font-style: italic;
+  font-weight: 500;
+  height: 10px;               /* matches the remaining column height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* STACKED TWO-IMAGE COLUMN */
+.panel-col-image {
+  display: flex;
+  flex-direction: column;
+  gap: var(--panel-col-gap);
+  flex-shrink: 0;              /* keeps same width footprint inside horizontal track */
+  margin: 15px 0;              /* match other panel vertical margins */
+  box-sizing: border-box;
+  height: var(--panel-image-height);
+}
+
+/* each stacked image same height as other project images */
+.panel-col-image img {
+  width: 100%;
+  height: calc((var(--panel-image-height) - var(--panel-col-gap)) / 2);
+  max-height: calc((var(--panel-image-height) - var(--panel-col-gap)) / 2);
+  object-fit: cover;           /* preserves aspect ratio while filling the box (may crop) */
+  display: block;
+  margin-right: 10px;
+}
+}
+
+/* ===================== MOBILE LAYOUT ===================== */
+
+@media (max-width: 899px) {
+
+.proj-title {
+  font-size: 1.29rem;
+}
+
+/* Image panels become full-bleed within the page width */
+.panel-image-plan, .section-mobile, .panel-image, .column .panel-image-r-plan, .panel-col-image {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 0 7px 0;
+  box-sizing: border-box;
+  display: block;
+}
+
+.panel-image-plan img, .section-mobile img, .panel-image img, .column .panel-image-r-plan img, .panel-col-image img {
+  width: 100% !important;
+  height: auto !important;                   /* natural height, no forced tall hero */
+  object-fit: cover;
+  display: block;
+  border-radius: 0px;
+}
+
+.panel-image img {
+  margin-top: 20px;
+}
+
+.panel-image-plan img {
+  margin-left: 30px;
+}
+
+.section-desktop {
+  display: none;
+}
+
+.section-mobile {
+  display: flex !important;
+  flex-direction: column;     /* or column if you prefer */
+  gap: 15px;
+  margin-top: 30px !important;
+  margin-bottom: 30px !important;
+}
+
+.column {
+  display: flex !important;        /* ✅ correct */
+  flex-direction: column;
+  justify-content: center;         /* vertical centering */
+  align-items: center;             /* horizontal centering */
+  min-height: 80vh;               /* ✅ REQUIRED */
+}
+
+.column .panel-image-r-plan img {
+  width: auto;
+  max-width: 300px;
+  margin: auto;                    /* ✅ centers image */
+  transform: scale(0.9);           /* ❗ removed negative scale */
+  display: block;
+}
+
+.panel-col-image img {
+    margin-bottom: 7px;
+}
+
+.column .panel-col-text {
+  text-align: center;
+  margin: 30px 25px 20px 25px;
+  font-weight: 500;
+  font-style: italic;
+}
+}
