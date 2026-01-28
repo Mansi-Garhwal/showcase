@@ -1,0 +1,381 @@
+/* ===================== DESKTOP/LAPTOP LAYOUT ===================== */
+
+@media (min-width: 900px) {
+
+/* Root variables for consistent spacing */
+:root {
+  --sidebar-offset: 380px;     /* same width offset as your sidebar */
+  --gallery-height: 280px;     /* height of bottom carousel */
+  --gallery-offset: 15px 0;
+}
+
+body.project-page {
+  overflow-y: auto;   /* REQUIRED for mouse wheel */
+  overflow-x: hidden;
+  height: 100vh;
+  scrollbar-width: none;
+}
+
+body.project-page::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+main.project-page {
+  overflow: hidden;
+}
+
+.project-page {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.class {
+  height: 100%;
+}
+
+.project-track {
+  height: 100vh;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,0,0,0.3) transparent;
+}
+
+.class, .project-track {
+  padding-left: 380px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  will-change: transform;
+  transform: translate3d(0,0,0);
+}
+
+.class::-webkit-scrollbar, .project-track::-webkit-scrollbar { 
+  display: 8px;
+}
+
+.class::-webkit-scrollbar-thumb, .project-track::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.3);
+  border-radius: 4px;
+}
+
+.class::-webkit-scrollbar-track, .project-track::-webkit-scrollbar-track {
+  background: transparent;
+}
+   
+/* PANEL base */
+.panel {
+  margin: 15px 0;
+  height: calc(100vh - 75px);
+  width: auto;
+  object-fit: cover;
+  flex-shrink: 0;
+  border-radius: 0px;
+  display: block;
+  user-drag: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.proj-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px; /* space between each item */
+  font-family: 'Poppins', sans-serif;
+  color: var(--char);
+}
+
+.meta-item {
+  display: flex;
+  gap: 7px; /* space between label and value */
+  flex-wrap: wrap; /* ensures clean wrapping on mobile */
+}
+
+.meta-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.meta-value {
+  font-size: 1rem;
+  font-weight: 500;
+  font-style: italic;
+  color: #444;
+  letter-spacing: 0.08rem;
+}
+
+/* TEXT PANEL (first column) — fixed width and vertically centered */
+.panel-text {
+  width: 700px;              /* exact width you wanted */
+  flex-shrink: 0;
+  display: flex;             /* make this panel a flex column */
+  flex-direction: column;
+  justify-content: center;   /* <-- vertical centering of the content inside the 500px panel */
+  align-items: flex-start;   /* keep text left-aligned inside this column; change to center if you want horizontally centered */
+  box-sizing: border-box;
+  letter-spacing: 0.05rem;
+}
+
+.panel-text .proj-meta {
+  color: rgba(0,0,0,0.65);
+  margin-top: 10px;
+  font-size: 0.95rem;
+}
+
+/* Set inner content width to keep text readable */
+.panel-text .panel-inner {
+  max-width: 700px;
+  margin-right: 30px;
+  text-align: justify;
+}
+
+/* avoid extra margins from paragraphs inside panels */
+.panel-text p, .panel-text .proj-desc, .panel-image p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Prevent sidebar link color change on project pages */
+body.project-page .sidebar a, body.project-page .sidebar a:visited,
+body.project-page .sidebar a:focus, body.project-page .sidebar a:active {
+  color: inherit !important;      /* use the default sidebar text color */
+}
+
+/* Ensure hover still works if you want */
+body.project-page .sidebar a:hover {
+  color: var(--hover-color); /* or whatever hover color you want */
+}
+
+/* Wrap the image panel so text can sit on top */
+.overlay-block {
+  position: relative;
+}
+
+.overlay-block::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 35%;               /* how much area you darken */
+  height: 40%;              /* vertical dark area */
+  pointer-events: none;
+}
+
+/* The text box over the image */
+.img-line-text {
+  position: absolute;
+  bottom: 20px;                  /* adjust as needed */
+  right: 1px;                      /* bar starts at right edge */
+  padding: 5px 15px;  /* 左 padding 20px ensures text starts nicely */
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--char);
+  text-align: right;
+  display: inline-block;
+  white-space: nowrap;
+  z-index: 2;
+  text-shadow: 0 0 4px rgba(255,255,255,0.7), 0 0 8px rgba(0,0,0,0.8);
+}
+
+.img-line-text::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -20px;                    /* 👇 pushes bar 50px left beyond the text width */
+  width: calc(100% + 20px);       /* 👇 bar width = full text box width + 50px */
+  background: linear-gradient(
+    to left,
+    rgba(255,255,255,0.55) 0%,
+    rgba(255,255,255,0.45) 80%,
+    rgba(255,255,255,0.20) 90%,
+    rgba(255,255,255,0.00) 100%
+  );
+  backdrop-filter: blur(3px);
+  z-index: -1; /* stays behind text */
+}
+}
+
+/* ===================== MOBILE LAYOUT ===================== */
+
+@media (max-width: 899px) {
+
+.hamburger {
+  right: 30px !important;
+}
+
+.sidebar.open .sidebar-nav, .sidebar.open .sidebar-footer {
+  margin-right: 15px !important;
+}
+
+body.project-page {
+  margin: 70px 10px 10px 10px !important; /* top 70px, left/right 10px */
+  box-sizing: border-box;
+  height: auto !important;                  /* allow vertical scrolling on mobile */
+  overflow-x: hidden !important;            /* prevent horizontal scroll */
+}
+
+/* Make the track stack vertically instead of horizontal row */
+.project-track {
+  display: block !important;                 /* remove horizontal flex row */
+  flex-direction: column;                    /* fallback if some rules still apply */
+  gap: 5px;                                 /* gap between panels (tweakable) */
+  padding-left: 0 !important;                /* remove desktop spacer */
+  width: calc(100% - 20px) !important;       /* respect left/right margin (10px each) */
+  max-width: 100%;
+  overflow-x: hidden !important;             /* prevent horizontal scroll on mobile */
+  overflow-y: visible !important;
+  -webkit-overflow-scrolling: touch;
+  touch-action: auto;                        /* allow normal vertical touch scrolling */
+}
+
+/* Text panel becomes a full-width block at top */
+.panel-text {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 12px 6px !important;
+  margin: 0 0 8px 0;
+  box-sizing: border-box;
+  align-items: flex-start !important;
+  text-align: justify;                          /* left for better readability on mobile */
+}
+
+.panel-text .proj-title {
+  margin-bottom: 5px;
+}
+
+/* ensure inner text doesn't exceed content width */
+.panel-text .panel-inner {
+  max-width: 100% !important;
+  padding-right: 6px;
+}
+
+.proj-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px; /* space between each item */
+  font-family: 'Poppins', sans-serif;
+  color: var(--char);
+}
+
+.meta-item {
+  display: flex;
+  gap: 7px; /* space between label and value */
+  flex-wrap: wrap; /* ensures clean wrapping on mobile */
+}
+
+.meta-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.meta-value {
+  font-size: 1rem;
+  font-weight: 500;
+  font-style: italic;
+  color: #444;
+  letter-spacing: 0.08rem;
+}
+
+/* remove overlays, hover effects and transitions on mobile images */
+.panel-image .overlay, .panel-image .img-overlay,
+.panel-image .project-overlay, .panel-text .overlay {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.panel-image img, .panel-text, .project-track {
+  transition: none !important;
+  transform: none !important;
+}
+
+/* reduce any huge heights that are desktop-specific */
+.panel, .panel-image, .panel-text {
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+/* Optional: maintain some whitespace at bottom to avoid content being hidden */
+.project-page::after {
+  content: "";
+  display: block;
+  height: 10px;
+}
+
+.project-track[style] {
+  overflow-x: hidden !important;
+}
+
+/* small-screen typography tweak */
+@media (max-width: 420px) {
+  .proj-title {
+    font-size: 1.1rem;
+  }
+
+  .proj-meta  {
+    font-size: 0.85rem;
+  }
+
+  .proj-desc  {
+    font-size: 0.95rem;
+  }
+}
+
+/* Wrap the image panel so text can sit on top */
+.overlay-block {
+  position: relative;
+}
+
+.overlay-block::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 35%;               /* how much area you darken */
+  height: 40%;              /* vertical dark area */
+  pointer-events: none;
+}
+
+/* The text box over the image */
+.img-line-text {
+  position: absolute;
+  bottom: 7px;                  /* adjust as needed */
+  right: 1px;                      /* bar starts at right edge */
+  padding: 2.5px 5px;  /* 左 padding 20px ensures text starts nicely */
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--char);
+  text-align: right;
+  display: inline-block;
+  white-space: nowrap;
+  z-index: 2;
+  text-shadow: 0 0 4px rgba(255,255,255,0.7), 0 0 8px rgba(0,0,0,0.8);
+}
+
+.img-line-text::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -20px;                    /* 👇 pushes bar 50px left beyond the text width */
+  width: calc(100% + 20px);       /* 👇 bar width = full text box width + 50px */
+  background: linear-gradient(
+    to left,
+    rgba(255,255,255,0.55) 0%,
+    rgba(255,255,255,0.45) 80%,
+    rgba(255,255,255,0.20) 90%,
+    rgba(255,255,255,0.00) 100%
+  );
+  backdrop-filter: blur(3px);
+  z-index: -1; /* stays behind text */
+}
+}

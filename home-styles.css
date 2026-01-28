@@ -1,0 +1,143 @@
+/* ===================== DESKTOP/LAPTOP LAYOUT ===================== */
+
+@media (min-width: 900px) {
+
+.gallery-container {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.gallery-track {
+  padding-left: 380px;
+  display: flex;
+  align-items: center;
+  gap: 7px; /* spacing between images */
+  height: 100%;
+  will-change: transform;
+  transform: translate3d(0,0,0);
+  /* scrollbar */
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,0,0,0.3) transparent;
+  scroll-behavior: auto;   /* 👈 IMPORTANT */
+  white-space: nowrap;
+}
+
+.gallery-caption {
+  width: 450px;
+  text-align: center;
+  margin: 0 40px;                 /* same vertical rhythm as images */
+  margin-top: 550px;
+  height: calc(100vh - 220px);        /* aligns with image height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.2rem;
+  line-height: 0.9;
+  letter-spacing: 0.15rem;
+  color: rgba(0,0,0,0.75);
+  white-space: nowrap;
+}
+
+.gallery-caption b {
+  font-weight: 600;
+}
+
+.gallery-caption em {
+  font-style: italic;
+  font-size: 1rem;
+  margin-top: 12px;
+  letter-spacing: 0.08rem;
+  color: rgba(0,0,0,0.6);
+}
+
+.gallery-track::-webkit-scrollbar {
+  height: 8px;
+}
+
+.gallery-track::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.3);
+  border-radius: 4px;
+}
+
+.gallery-track::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.gallery-track img {
+  margin: 110px 0;
+  height: calc(100vh - 220px);
+  width: auto;
+  object-fit: cover;
+  flex-shrink: 0;
+  border-radius: 0px;
+  display: block;
+  user-drag: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+}
+
+/* ===================== MOBILE LAYOUT ===================== */
+
+@media (max-width: 899px) {
+
+.gallery-container {
+  margin-top: 70px;        /* below top bar */
+  margin-bottom: 5px;
+  margin-left: 0 !important;
+  width: 100% !important;
+  height: auto !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+}
+
+.gallery-track {
+  display: flex;
+  flex-direction: column !important;
+  gap: 5px;
+  width: 100%;
+  height: auto;
+  align-items: center;
+}
+
+.gallery-track img {
+  width: 100% !important;  /* full width */
+  height: auto !important;
+  margin: 0 !important;
+  object-fit: cover;
+}
+
+.gallery-caption {
+  text-align: left;
+  height: 150px;        /* aligns with image height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.2rem;
+  line-height: 0.9;
+  letter-spacing: 0.15rem;
+  color: rgba(0,0,0,0.75);
+  white-space: nowrap;
+}
+
+.gallery-caption b {
+  font-weight: 600;
+}
+
+.gallery-caption em {
+  font-style: italic;
+  font-size: 1rem;
+  margin-top: 12px;
+  letter-spacing: 0.08rem;
+  color: rgba(0,0,0,0.6);
+}
+}

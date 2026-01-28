@@ -1,0 +1,157 @@
+/* ===================== MOBILE LAYOUT ===================== */
+
+@media (max-width: 899px) {
+
+body {
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  width: 100% !important;
+  height: auto !important;
+  margin: 0;
+  padding: 0;
+}
+
+body.menu-open {
+  overflow: hidden !important;
+}
+
+/* Top bar (Logo + Hamburger) */
+.sidebar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 70px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(6px);
+  display: flex;
+  flex-direction: column;
+  z-index: 9999 !important;
+  pointer-events: auto; /* ensure clicks register */
+  padding: 0 15px;
+  touch-action: manipulation;
+}
+
+.sidebar-top {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;     /* left-aligned logo + tagline */
+  justify-content: flex-start;
+  gap: 4px;                    /* small gap between logo & tagline */
+  padding: 15px 10px;          /* safe padding from edges */
+  box-sizing: border-box;
+}
+
+/* Logo: inherit desktop font, size, and color */
+.sidebar-top .logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--char);
+  text-decoration: none;
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: 3.9px !important;
+}
+
+/* Tagline: below logo, no changes other than alignment */
+.sidebar-top .tagline {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8rem;
+  color: #666;
+  line-height: 1;
+  margin: 0;
+  text-align: justify;
+  letter-spacing: 4.0px;
+  -webkit-text-justify: inter-character;
+  text-justify: inter-character;   /* ensures even spacing between letters */
+}
+
+/* minimal hamburger baseline — safe to include */
+.hamburger {
+  position: fixed !important;
+  top: 3px !important;             /* vertically centered in 60px bar */
+  right: 20px !important;           /* right-side placement */
+  width: 30px !important;           /* same width as before */
+  height: 50px !important;          /* fills almost full 60px bar height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* auto-distribute lines */
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1600;
+  padding: 0;
+  gap: 5px;
+}
+
+/* the three bars inside hamburger */
+.hamburger span {
+  display: block !important;
+  width: 100% !important;
+  height: 2px !important;          /* line thickness */
+  background: var(--char);
+  border-radius: 2px;
+}
+
+/* Hide nav + socials until menu is open */
+.sidebar-nav, .sidebar-footer {
+  display: none;
+}
+
+/* When menu opens */
+.sidebar.open {
+  height: 100vh;
+  justify-content: flex-start;
+  overflow-y: hidden;
+}
+
+.sidebar.open .sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 7px;
+  margin-top: 30px;         /* 👈 gap below logo row */
+}
+  
+.sidebar.open .sidebar-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 30px;         /* 👈 gap below nav links */
+}
+   
+.sidebar-nav a {
+  font-size: 0.9rem;
+  color: var(--char);
+  text-decoration: none;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+}
+
+.sidebar-footer {
+  display: none;
+}
+
+.sidebar-footer p {
+  font-size: 0.7rem;
+  margin-bottom: 3px;
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.sidebar-footer .arrow {
+  font-size: 1rem;
+  color: var(--accent);
+}
+
+.sidebar-socials {
+  display: flex;
+  gap: 9px;
+}
+
+.sidebar-socials img {
+  width: 15px;
+  height: 15px;
+}
+}

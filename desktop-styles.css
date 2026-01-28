@@ -1,0 +1,265 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;600&family=Lobster&display=swap');
+
+:root{
+  --gold: #B78F2C;
+  --accent: #f3b54a;
+  --char: #222;
+  --sidebar-width: 320px;
+  --sidebar-left-offset: 30px;
+}
+
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,body {
+  min-height: 100%;
+}
+
+/* BODY: no HOME background color here (kept neutral) */
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--char);
+}
+
+/* ===================== DESKTOP/LAPTOP LAYOUT ===================== */
+
+@media (min-width: 900px) {
+
+body.home {
+  overflow: hidden;
+}
+
+body:not(.home):not(.project-page) {
+  overflow: auto;
+}
+
+html, body {
+  overscroll-behavior: auto;
+  touch-action: auto;
+}
+
+/* DESKTOP/LAPTOP ONLY */
+.hamburger {
+  display: none;   /* never show on laptop */
+}
+   
+.sidebar { 
+  position: fixed;
+  top: 0;
+  bottom: 10px;
+  left: var(--sidebar-left-offset);
+  width: var(--sidebar-width);
+  height: auto;
+  background: rgba(255,255,255,0.5);           /* highly translucent */
+  backdrop-filter: blur(8px);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  z-index: 1500;
+  border-radius: 0px;
+  box-shadow: none(0,0,0,0.06);
+}
+
+.sidebar-top {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 6px;                                    /* small gap between logo and tagline */
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Logo + Tagline share same width & alignment */
+.sidebar-top .logo, .sidebar-top .tagline {
+  display: inline-block;
+  width: 290px;                                /* ensures equal alignment width */
+  max-width: 100%;
+  box-sizing: border-box;
+  margin-left: auto;                           /* center horizontally inside the sidebar */
+  margin-right: auto;
+  white-space: normal;                         /* allow normal wrapping if needed on tiny screens */
+}
+
+.sidebar-top .logo {
+  display: inline-block;
+  text-align: justify;
+  -webkit-text-size-adjust: none;
+  text-justify: distribute;
+  -webkit-text-justify: inter-character;
+  text-overflow: clip;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--char);
+  text-decoration: none;
+  letter-spacing: 1.5px;
+}
+
+.sidebar-top .tagline {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  color: #666;
+  width: 290px;
+  text-align: justify;
+  letter-spacing: 4.3px;
+  line-height: 1;
+  -webkit-text-justify: inter-character;
+  text-justify: inter-character;   /* ensures even spacing between letters */
+  margin: 0 auto;                  /* center inside sidebar */
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: 30px;
+}
+
+.sidebar-nav a {
+  font-size: 14px;  /* try 14px or 13px */
+  color: var(--char);
+  text-decoration: none;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  padding: 1.5px 0;
+  transition: color 0.25s ease;
+}
+
+/* hover and active states: font color only */
+.sidebar-nav a:hover {
+  color: var(--accent);
+}
+
+.sidebar-nav a.active {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* -- Sidebar Footer -- */
+.sidebar-footer {
+  margin-top: auto; /* pushes footer to bottom */
+  display: flex;          /* enable flex layout */
+  flex-direction: column; /* stack text + icons */
+  align-items: center;    /* horizontally center everything */
+  text-align: center;     /* center text itself */
+}
+
+.sidebar-footer p {
+  font-size: 0.7rem;
+  margin-bottom: 3px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.sidebar-footer .arrow {
+  font-size: 1rem;
+  color: var(--accent);
+}
+
+.sidebar-socials {
+  display: flex;
+  justify-content: center; /* center icons horizontally */
+  gap: 7px;
+}
+
+.sidebar-socials img {
+  width: 20px;
+  height: 20px;
+  /* filter: grayscale(100%) brightness(90%); */
+  transition: filter 0.3s ease, transform 0.2s ease;
+}
+
+.sidebar-socials img:hover {
+  filter: none;
+  transform: scale(1.2);
+}
+
+/* ----------------------- General page ----------------------- */
+main.page {
+  padding: 28px;
+  margin-left: calc(var(--sidebar-width) + var(--sidebar-left-offset));
+}
+
+/* Example card/grid for work page (kept simple) */
+.grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  padding: 24px;
+}
+
+/* project card */
+.project-card {
+  background: #fff;
+  border-radius: 0px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+/* ABOUT & CONTACT helpers */
+.about-hero {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.about-hero img {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.bio h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;           /* ~32px desktop */
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+/* contact form */
+.contact-form input, .contact-form textarea, .contact-form button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+/* FOOTER */
+footer {
+  padding: 28px;
+  text-align: center;
+  color: #666;
+  margin-top: 30px;
+}
+
+/* -------- HORIZONTAL SCROLLBARS -------- */
+.gallery-track, .project-track {
+  overflow-x: auto;      /* allow horizontal scroll */
+  overflow-y: hidden;    /* kill vertical */
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: rgba(0,0,0,0.3) transparent;
+}
+
+/* Chrome / Edge / Safari */
+.gallery-track::-webkit-scrollbar, .project-track::-webkit-scrollbar {
+  height: 8px;             /* thickness of scrollbar */
+}
+
+.gallery-track::-webkit-scrollbar-thumb, .project-track::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.3);
+  border-radius: 4px;
+}
+
+.gallery-track::-webkit-scrollbar-track, .project-track::-webkit-scrollbar-track {
+  background: transparent;
+}
+}

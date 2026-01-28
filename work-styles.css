@@ -1,0 +1,186 @@
+/* ===================== DESKTOP/LAPTOP LAYOUT ===================== */
+
+@media (min-width: 900px) {
+
+.work-page {
+  margin-left: 380px;
+  padding: 65px 70px 36px 0;
+  box-sizing: border-box;
+}
+
+.work-section {
+  margin-bottom: 40px;
+}
+
+.work-section-title {
+  font-size: 1.25rem;
+  font-weight: 550;
+  letter-spacing: 1px;
+  margin: 0 0 20px 0;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.work-section-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;          /* adjust line length */
+  height: 1px;
+  background: var(--accent);
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Thumbnail container */
+.thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;   /* 👈 maintains 1280x720 ratio */
+  overflow: hidden;
+  border-radius: 0;
+}
+
+/* Image fills the thumbnail */
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0 !important;
+  display: block;
+}
+
+/* Overlay covers image by default */
+.thumb .overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.3);   /* 10% grey overlay */
+  transition: opacity 0.3s ease;
+}
+
+/* On hover → remove overlay */
+.thumb:hover .overlay {
+  opacity: 0;
+}
+
+/* Project title */
+.project-title {
+  margin: 7px 0 0 0;
+  font-size: 0.9rem;       /* adjust here */
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: var(--char);
+  text-align: left;
+  transition: color 0.3s ease;
+}
+
+/* Hover effect on title color */
+.project:hover .project-title {
+  color: var(--accent);
+}
+}
+
+/* ===================== MOBILE LAYOUT ===================== */
+
+@media (max-width: 899px) {
+
+.work-page, .projects-section, .project-grid, .work-grid {
+  margin: 70px 10px 0 10px !important;  /* top, right, bottom, left */
+  box-sizing: border-box;
+}
+
+.work-section {
+  margin-bottom: 20px;
+}
+
+.work-section-title {
+  font-size: 1.1rem;
+  font-weight: 550;
+  letter-spacing: 1px;
+  margin: 0 0 -55px 10px;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.work-section-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--accent);
+}
+
+/* 2-column grid with 5px gap */
+.project-grid, .work-grid, .projects-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 10px !important;
+  align-items: start;
+}
+
+/* Project cards */
+.project-item, .project-card, .work-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  background: transparent;
+}
+
+/* Thumbnails */
+.thumb, .project-thumb, .project-item .thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;   /* 👈 maintains 1280x720 ratio */
+  overflow: hidden;
+  border-radius: 0;
+}
+
+.thumb img, .project-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Remove overlays & hover transitions for mobile */
+.project-item .overlay, .project-item .project-overlay,
+.project-card .overlay, .work-item .overlay {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.project-item:hover, .project-card:hover, .work-item:hover,
+.project-item:active, .project-card:active {
+  transform: none !important;
+  filter: none !important;
+  box-shadow: none !important;
+}
+
+.project-item, .project-card, .thumb img {
+  transition: none !important;
+}
+
+/* Titles */
+.project-title, .project-name, .project-link {
+  margin: 5px 0 10px 0;
+  font-size: 0.9rem;       /* adjust here */
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: var(--char);
+  text-align: left;
+}
+}

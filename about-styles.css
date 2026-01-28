@@ -1,0 +1,472 @@
+/* ===================== DESKTOP/LAPTOP LAYOUT ===================== */
+
+@media (min-width: 900px) {
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;   /* 2-column grid */
+  grid-auto-rows: auto;
+  margin-left: 380px;               /* space for sidebar */
+  padding: 37.5px 50px 37.5px 0;    /* top, right, bottom, left */
+  row-gap: 60px;                    /* vertical gap between rows */
+  column-gap: 30px;                 /* horizontal gap between columns */
+}
+
+/* shared axis with gutters */
+.about-grid > .grid-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;       /* 👈 horizontally centers content */
+  text-align: flex-start;
+}
+
+.about-grid h2, .about-grid h3 {
+  position: relative;
+  display: inline-block;   /* 👈 makes the line hug the text */
+  margin-bottom: 15px;    /* space below heading */
+  text-align: center;       /* centers text in its own box */
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.25rem;               /* ~20px */
+  line-height: 1.4;
+  font-weight: 550;
+}
+
+.about-grid h2::after, .about-grid h3::after {
+  content: "";
+  display: block;
+  width: 300px;             /* 👈 fixed length (adjust this for all) */
+  height: 1px;              /* line thickness */
+  background: var(--accent);
+  margin: 6px auto 0;       /* centers line under text */
+}
+
+/* a1 + a2: vertically centered */
+.a1, .a2 {
+  display: flex;
+  align-items: center;
+}
+
+.a1 {
+  justify-content: center;
+}
+
+.a2 {
+  justify-content: center;
+}
+
+.intro-hi {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;     /* large display */
+  line-height: 1.05;
+  margin-bottom: 15px;
+  text-align: left;
+  letter-spacing: 1px;
+}
+
+.intro-hi .name {
+  font-family: 'Cormorant Upright', serif /*'Lobster', cursive*/;
+  color: var(--accent);
+  font-weight: 600;
+  text-align: left;
+}
+
+/* Short bio paragraphs */
+.intro-short, .intro-cta {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  color: var(--char);
+  max-width: 680px;      /* keep line length comfortable */
+  text-align: justify;
+  max-width: 600px;
+  letter-spacing: 0.5px;
+}
+
+.intro-cta {
+  font-style: italic;
+}
+
+/* portrait */
+.a2 img {
+  width: 80%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+/* other cells: center both axes */
+.b1, .b2, .c1, .c2, .d1, .d2 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* timeline */
+.timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.timeline li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.timeline .t-date {
+  font-weight: 550;
+  color: var(--char);
+  font-size: 1rem;
+  margin-bottom: 2px;
+  letter-spacing: 1.5px;
+}
+
+.timeline .t-body {
+  font-size: 1rem;
+  color: var(--char);
+  line-height: 1.6;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+/* skills */
+.cfull {
+  grid-column: 1 / span 2;   /* stretches heading across both columns */
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.25rem;        /* ~20px */
+  line-height: 1.4;
+  font-weight: 500;
+  margin-bottom: -10px;
+}
+
+.skill-intro {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  color: #444;
+  text-align: center;
+  max-width: 700px;
+  margin: 10px auto 0 auto;
+  font-style: italic;
+  letter-spacing: 1.5px;
+}
+
+.c1 {
+  grid-column: 1;   /* left column */
+}
+.c2 {
+  grid-column: 2;   /* right column */
+}
+
+/* center align their content */
+.c1, .c2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Trainer info blocks */
+.skill-list p, .skill-list a {
+  text-align: center;
+}
+
+/* Top part: names + designation */
+.grid-item .skill-top, .grid-item .skill-top a {
+  margin-bottom: 2px;       /* 👈 adjust spacing between top & bottom */
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;           /* ~16px */
+  line-height: 1.6;
+  font-weight: 400;
+  color: var(--char);
+  letter-spacing: 1.5px;
+}
+
+/* Bottom part: address / details */
+.grid-item .skill-bottom, .grid-item .skill-bottom a {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;         /* ~13px */
+  letter-spacing: 0.5px;
+  color: #555;
+}
+   
+/* trainers */
+.dfull {
+  grid-column: 1 / span 2;   /* stretches heading across both columns */
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.25rem;        /* ~20px */
+  line-height: 1.4;
+  font-weight: 500;
+  margin-bottom: -10px;
+}
+
+.trainer-intro {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  color: #444;
+  text-align: center;
+  max-width: 700px;
+  margin: 10px auto 0 auto;
+  font-style: italic;
+  letter-spacing: 1.5px;
+}
+
+.d1 {
+  grid-column: 1;   /* left column */
+}
+.d2 {
+  grid-column: 2;   /* right column */
+}
+
+/* center align their content */
+.d1, .d2 {
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+/* Trainer info blocks */
+.trainer-list p, .trainer-list a {
+  text-align: center;
+}
+
+/* Top part: names + designation */
+.grid-item .trainer-top, .grid-item .trainer-top a {
+  margin-bottom: 5px;       /* 👈 adjust spacing between top & bottom */
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;           /* ~16px */
+  line-height: 1.6;
+  font-weight: 400;
+  color: var(--char);
+  letter-spacing: 1.5px;
+}
+
+/* Bottom part: address / details */
+.grid-item .trainer-bottom, .grid-item .trainer-bottom a {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;         /* ~13px */
+  letter-spacing: 0.5px;
+  color: #555;
+  margin-bottom: 15px;
+}
+}
+
+/* ===================== MOBILE LAYOUT ===================== */
+
+@media (max-width: 899px) {
+
+.about-grid {
+  margin: 70px 10px 40px 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.about-grid .grid-item {
+  text-align: center;
+  align-items: center;
+}
+
+/* Common heading styles */
+.about-grid h2, .about-grid h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 15px;      /* (5 & 8) heading → paragraph gap */
+  text-align: center;
+  position: relative;
+  display: inline-block;
+}
+
+.about-grid h2::after, .about-grid h3::after {
+  content: "";
+  display: block;
+  width: 300px;
+  height: 1px;
+  background: var(--accent);
+  margin: 6px auto 0;
+}
+
+/* --------- a1 (Intro paragraph) --------- */
+.intro-hi {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;     /* large display */
+  line-height: 1.6;
+  margin-bottom: 15px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.intro-hi .name {
+  font-family: 'Cormorant Upright', serif /*'Lobster', cursive*/;
+  color: var(--accent);
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Short bio paragraphs */
+.intro-short, .intro-cta {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  color: var(--char);
+  max-width: 680px;      /* keep line length comfortable */
+  text-align: justify;
+  max-width: 600px;
+  letter-spacing: 0.5px;
+  padding: 0 10px;
+}
+
+.intro-cta {
+  font-style: italic;
+  text-align: center;
+}
+
+/* --------- a2 (Portrait) --------- */
+.a2 img {
+  width: 80%;               /* (3) image size */
+  border-radius: 0;
+  margin-bottom: 30px;      /* (4) gap a2 → b1 */
+}
+
+/* --------- b1 (On-field experience) & b2 (Education) --------- */
+.timeline, .timeline.short {
+  list-style: none !important;   /* force no bullets */
+  padding-left: 0 !important;    /* remove default UL padding */
+  margin-left: 0 !important;
+  margin-bottom: 30px;
+}
+
+/* 2) Increase space between timeline items & between date and body */
+.timeline li {
+  display: block;                /* ensures vertical stacking on mobile */
+  margin-bottom: 15px;           /* increase gap between entries (was 15px) */
+  padding-left: 0;               /* safety */
+  align-items: center;
+}
+
+.timeline .t-date {
+  display: block;
+  margin-bottom: 2px;            /* larger gap between date line and body (was 3px) */
+  font-weight: 550;
+  letter-spacing: 1.5px;
+}
+
+.timeline .t-body {
+  display: block;
+  margin: 0;                     /* keep body compact but separated by t-date margin */
+  color: var(--char);
+  line-height: 1.6;
+  text-align: center;            /* keep your current center alignment */
+  letter-spacing: 0.5px;
+}
+
+/* --------- c1 (Personal Skills) --------- */
+.cfull {
+  margin-bottom: 5px;  /* (12) heading → d1 gap */
+}
+
+.skill-intro {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  color: #444;
+  text-align: center;
+  font-style: italic;
+  letter-spacing: 1.5px;
+  margin-bottom: 15px;
+}
+
+/* Trainer info blocks */
+.skill-list p, .skill-list a {
+  text-align: center;
+}
+
+/* Top part: names + designation */
+.grid-item .skill-top, .grid-item .skill-top a {
+  margin-bottom: 2px;       /* 👈 adjust spacing between top & bottom */
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;           /* ~16px */
+  line-height: 1.6;
+  font-weight: 400;
+  color: var(--char);
+  letter-spacing: 1.5px;
+}
+
+/* Bottom part: address / details */
+.grid-item .skill-bottom, .grid-item .skill-bottom a {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;         /* ~13px */
+  letter-spacing: 0.5px;
+  color: #555;
+}
+
+/* --------- d1full (Trained Under heading) --------- */
+.dfull {
+  margin-bottom: 5px;  /* (12) heading → d1 gap */
+  margin-top: 15px;
+}
+
+.trainer-intro {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  color: #444;
+  text-align: center;
+  font-style: italic;
+  letter-spacing: 1.5px;
+  margin-bottom: 15px;
+}
+
+/* --------- d1 & d2 (Trainers) --------- */
+.d1, .d2 {
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+/* Trainer info blocks */
+.trainer-list p, .trainer-list a {
+  text-align: center;
+}
+
+/* Top part: names + designation */
+.grid-item .trainer-top, .grid-item .trainer-top a {
+  margin-bottom: 5px;       /* 👈 adjust spacing between top & bottom */
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;           /* ~16px */
+  line-height: 1.6;
+  font-weight: 400;
+  color: var(--char);
+  letter-spacing: 1.5px;
+}
+
+/* Bottom part: address / details */
+.grid-item .trainer-bottom, .grid-item .trainer-bottom a {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;         /* ~13px */
+  letter-spacing: 0.5px;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.group-gap {
+  margin-top: 15px !important;
+  margin-bottom: 15px !important;
+}
+
+/* small responsive tweak: if timeline text becomes too wide, reduce its max-width */
+@media (max-width: 420px) {
+  .timeline .t-body, .timeline .t-date {
+    max-width: 100%;
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+  
+  .c2 .skill-list > div {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+}
