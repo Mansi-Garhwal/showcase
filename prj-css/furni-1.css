@@ -26,6 +26,7 @@
   margin: 15px 0;              /* match other panel vertical margins */
   box-sizing: border-box;
   height: var(--panel-image-height);
+  margin-left: 30px;
 }
 
 /* each stacked image same height as other project images */
@@ -39,7 +40,11 @@
 
 .panel-image-column img, .panel-image-column-last img {
   height: 650px !important;
-  margin: 0 100px;
+  margin: 0 70px;
+}
+
+.panel-image-column {
+  margin-right: 50px;
 }
 
 .panel-col-text {
