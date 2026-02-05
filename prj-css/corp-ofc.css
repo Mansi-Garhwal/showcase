@@ -7,13 +7,13 @@
   --panel-col-gap: 10px;       /* gap between stacked images */
 }
 
-.panel-image img {
-  height: 750px;
-  max-height: 750px;
+.panel-col-vdo video {
+  height: calc(var(--panel-image-height) - 250px);  
   width: auto;
   object-fit: cover;
   display: block;
-  box-sizing: border-box;
+  align-items: center;
+  margin-left: 20px;
 }
 
 .plans-desktop {
@@ -24,8 +24,17 @@
   display: none;
 }
 
+.panel-image img {
+  height: 750px;
+  max-height: 750px;
+  width: auto;
+  object-fit: cover;
+  display: block;
+  box-sizing: border-box;
+}
+
 /* STACKED TWO-IMAGE COLUMN */
-.panel-col-image, .panel-col-image-last {
+.panel-col-image {
   display: flex;
   flex-direction: column;
   gap: var(--panel-col-gap);
@@ -33,19 +42,16 @@
   margin: 15px 0;              /* match other panel vertical margins */
   box-sizing: border-box;
   height: var(--panel-image-height);
+  margin-right: 10px;
 }
 
 /* each stacked image same height as other project images */
-.panel-col-image img, .panel-col-image-last img {
+.panel-col-image img {
   width: 100%;
   height: calc((var(--panel-image-height) - var(--panel-col-gap)) / 2);
   max-height: calc((var(--panel-image-height) - var(--panel-col-gap)) / 2);
   object-fit: cover;           /* preserves aspect ratio while filling the box (may crop) */
   display: block;
-}
-
-.panel-col-image-last {
-  margin-right: 10px;
 }
 }
 
@@ -54,11 +60,11 @@
 @media (max-width: 899px) {
 
 .proj-title {
-  font-size: 1.4rem;
+  font-size: 1.15rem;
 }
 
 /* Image panels become full-bleed within the page width */
-.panel-image, .plans-mobile, .panel-col-image, .panel-col-image-last {
+.panel-image, .plans-mobile, .panel-col-image {
   width: 100% !important;
   max-width: 100% !important;
   margin: 0 0 7px 0;
@@ -66,7 +72,7 @@
   display: block;
 }
 
-.panel-image img, .plans-mobile img, .panel-col-image img, .panel-col-image-last img {
+.panel-image img, .plans-mobile img, .panel-col-image img, .panel-col-vdo video {
   width: 100% !important;
   height: auto !important;                   /* natural height, no forced tall hero */
   object-fit: cover;
@@ -86,7 +92,7 @@
   margin-bottom: 30px !important;
 }
 
-.panel-col-image img, .panel-col-image-last img {
+.panel-col-image img {
   margin-bottom: 7px;
 }
 }
