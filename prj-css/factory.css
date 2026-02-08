@@ -23,6 +23,7 @@
   object-fit: cover;
   display: block;
   box-sizing: border-box;
+  margin-right: 10px;
 }
 
 .panel-liner-text {
@@ -51,6 +52,7 @@
   box-sizing: border-box;
   height: var(--panel-image-height);
   margin-right: 10px;
+  margin-left: 30px;
 }
 
 /* each stacked image same height as other project images */
@@ -67,8 +69,20 @@
 
 @media (max-width: 899px) {
 
+.plans-desktop {
+  display: none;
+}
+
+.plans-mobile {
+  display: flex !important;
+  flex-direction: column;     /* or column if you prefer */
+  gap: 15px;
+  margin-top: 30px !important;
+  margin-bottom: -7px !important;
+}
+
 /* Image panels become full-bleed within the page width */
-.panel-image, .panel-image-last {
+.panel-image, .panel-col-image, .plans-mobile {
   width: 100% !important;
   max-width: 100% !important;
   margin: 0 0 7px 0;
@@ -76,7 +90,7 @@
   display: block;
 }
 
-.panel-image img, .panel-image-last img {
+.panel-image img, .panel-col-image img, .plans-mobile img {
   width: 100% !important;
   height: auto !important;                   /* natural height, no forced tall hero */
   object-fit: cover;
@@ -84,10 +98,7 @@
   border-radius: 0px;
 }
 
-.panel-liner-text {
-  text-align: center;
-  margin: 30px 15px;
-  font-weight: 500;
-  font-style: italic;
+.panel-col-image img {
+  margin-bottom: 7px;
 }
 }
