@@ -2,7 +2,7 @@
 
 @media (min-width: 900px) {
 
-/* Root variables for consistent spacing */
+/* --------- Root variables for consistent spacing --------- */
 :root {
   --sidebar-offset: 380px;     /* same width offset as your sidebar */
   --gallery-height: 280px;     /* height of bottom carousel */
@@ -67,7 +67,7 @@ main.project-page {
   background: transparent;
 }
    
-/* PANEL base */
+/* --------- PANEL base --------- */
 .panel {
   margin: 15px 0;
   height: calc(100vh - 75px);
@@ -109,7 +109,7 @@ main.project-page {
   letter-spacing: 0.08rem;
 }
 
-/* TEXT PANEL (first column) — fixed width and vertically centered */
+/* --------- TEXT PANEL (first column) --------- */
 .panel-text {
   width: 700px;              /* exact width you wanted */
   flex-shrink: 0;
@@ -166,7 +166,7 @@ body.project-page .sidebar a:hover {
   pointer-events: none;
 }
 
-/* The text box over the image */
+/* --------- The text box over the image --------- */
 .img-line-text {
   position: absolute;
   bottom: 20px;                  /* adjust as needed */
@@ -199,6 +199,24 @@ body.project-page .sidebar a:hover {
   );
   backdrop-filter: blur(3px);
   z-index: -1; /* stays behind text */
+}
+
+/* ------------------ PDF LINK ------------------ */
+.proj-pdf a {
+  display: inline-block;
+  font-weight: 500;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.proj-pdf a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+.proj-pdf a:hover {
+  text-decoration: underline;
 }
 }
 
@@ -320,11 +338,11 @@ body.project-page {
     font-size: 1.1rem;
   }
 
-  .proj-meta  {
+  .proj-meta {
     font-size: 0.85rem;
   }
 
-  .proj-desc  {
+  .proj-desc {
     font-size: 0.95rem;
   }
 }
@@ -377,5 +395,17 @@ body.project-page {
   );
   backdrop-filter: blur(3px);
   z-index: -1; /* stays behind text */
+}
+
+/* ------------------ PDF LINK ------------------ */
+.proj-pdf a {
+  display: inline-block;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.proj-pdf a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
 }
 }
