@@ -68,18 +68,6 @@
 
 @media (max-width: 899px) {
 
-/* ------------------ PDF LINK ------------------ */
-.proj-pdf a {
-  display: inline-block;
-  font-weight: 500;
-  text-decoration: none;
-}
-
-.proj-pdf a:focus-visible {
-  outline: 2px solid currentColor;
-  outline-offset: 4px;
-}
-
 /* ---------- IMAGE PANELS & STACKED IMAGE COLUMN ---------- */
 .panel-image, .panel-col-image, .plans-mobile {
   width: 100% !important;
@@ -120,3 +108,4 @@
 }
 
 }
+
