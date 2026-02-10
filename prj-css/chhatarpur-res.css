@@ -7,6 +7,7 @@
   --panel-col-gap: 10px;       /* gap between stacked images */
 }
 
+/* -------------- IMAGE PANELS -------------- */
 .panel-image img {
   height: 750px;
   max-height: 750px;
@@ -24,7 +25,7 @@
   display: none;
 }
 
-/* STACKED TWO-IMAGE COLUMN */
+/* ---------- STACKED IMAGE COLUMN ---------- */
 .panel-col-image, .panel-col-image-last {
   display: flex;
   flex-direction: column;
@@ -35,7 +36,6 @@
   height: var(--panel-image-height);
 }
 
-/* each stacked image same height as other project images */
 .panel-col-image img, .panel-col-image-last img {
   width: 100%;
   height: calc((var(--panel-image-height) - var(--panel-col-gap)) / 2);
@@ -53,11 +53,7 @@
 
 @media (max-width: 899px) {
 
-.proj-title {
-  font-size: 1.4rem;
-}
-
-/* Image panels become full-bleed within the page width */
+/* ---------- IMAGE PANELS & STACKED IMAGE COLUMN ---------- */
 .panel-image, .plans-mobile, .panel-col-image, .panel-col-image-last {
   width: 100% !important;
   max-width: 100% !important;
