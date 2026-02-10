@@ -91,10 +91,6 @@
 
 @media (max-width: 899px) {
 
-.proj-title {
-  font-size: 1.29rem;
-}
-
 /* Image panels become full-bleed within the page width */
 .panel-image-plan, .section-mobile, .panel-image, .column .panel-image-r-plan, .panel-col-image {
   width: 100% !important;
@@ -158,4 +154,5 @@
   font-weight: 500;
   font-style: italic;
 }
+
 }
