@@ -294,7 +294,7 @@
 .intro-hi {
   font-family: 'Playfair Display', serif;
   font-size: 1.5rem;     /* large display */
-  line-height: 1.6;
+  line-height: 1;
   margin-bottom: 15px;
   text-align: center;
   letter-spacing: 1px;
@@ -318,6 +318,8 @@
   max-width: 600px;
   letter-spacing: 0.5px;
   padding: 0 10px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .intro-cta {
@@ -471,4 +473,5 @@
 }
 
 }
+
 
