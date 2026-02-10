@@ -64,10 +64,6 @@
 
 @media (max-width: 899px) {
 
-.proj-title {
-  font-size: 1.45rem;
-}
-
 /* Image panels become full-bleed within the page width */
 .panel-col-image, .panel-image-column, .panel-image-column-last {
   width: 100% !important;
@@ -110,3 +106,4 @@
   margin: 0 30px;
 }
 }
+
