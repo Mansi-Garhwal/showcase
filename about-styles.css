@@ -293,7 +293,7 @@
 /* --------- a1 (Intro paragraph) --------- */
 .intro-hi {
   font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;     /* large display */
+  font-size: 2rem;     /* large display */
   line-height: 1;
   margin-bottom: 15px;
   text-align: center;
@@ -473,5 +473,6 @@
 }
 
 }
+
 
 
