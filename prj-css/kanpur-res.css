@@ -1,0 +1,105 @@
+/* ===================== DESKTOP/LAPTOP LAYOUT ===================== */
+
+@media (min-width: 900px) {
+
+:root {
+  --panel-image-height: 750px; /* keep consistent with project-styles.css */
+  --panel-col-gap: 10px;       /* gap between stacked images */
+}
+
+/* -------------- IMAGE PANELS -------------- */
+.panel-image img, .panel-image-last img {
+  height: 750px;
+  max-height: 750px;
+  width: auto;
+  object-fit: cover;
+  display: block;
+  box-sizing: border-box;
+}
+
+.panel-image-last img {
+  margin-right: 10px;
+}
+
+.plans-desktop {
+  display: block;
+}
+
+.plans-mobile {
+  display: none;
+}
+
+/* ---------- STACKED IMAGE & TEXT COLUMN ---------- */
+.column {
+  display: flex;
+  flex-direction: column;     /* stack image above text */
+  justify-content: flex-start;
+  align-items: center;         /* center text horizontally */
+  flex-shrink: 0;              /* stay same width as other panels */
+  height: var(--panel-image-height);   /* match height of other image panels */
+  box-sizing: border-box;
+  width: 950px;
+}
+
+.column .panel-col-img img {
+  height: 100%;
+  max-height: calc(var(--panel-image-height) - 70px);
+  width: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Liner text below the image */
+.column .panel-col-text {
+  width: 75%;
+  text-align: center;          /* center text below image */
+  font-style: italic;
+  font-weight: 500;
+  height: 80px;               /* matches the remaining column height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+}
+
+/* ===================== MOBILE LAYOUT ===================== */
+
+@media (max-width: 899px) {
+
+/* ---------- IMAGE PANELS & STACKED IMAGE COLUMN ---------- */
+.panel-image, .plans-mobile, .column .panel-col-img, .panel-image-last {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 0 7px 0;
+  box-sizing: border-box;
+  display: block;
+}
+
+.panel-image img, .plans-mobile img,.column .panel-col-img img, .panel-image-last img {
+  width: 100% !important;
+  height: auto !important;                   /* natural height, no forced tall hero */
+  object-fit: cover;
+  display: block;
+  border-radius: 0px;
+}
+
+.plans-desktop {
+  display: none;
+}
+
+.plans-mobile {
+  display: flex !important;
+  flex-direction: column;     /* or column if you prefer */
+  gap: 15px;
+  margin-top: 30px !important;
+  margin-bottom: 30px !important;
+}
+
+.column .panel-col-text {
+  text-align: center;
+  margin: 30px 30px;
+  font-weight: 500;
+  font-style: italic;
+}
+}
