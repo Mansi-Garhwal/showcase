@@ -17,6 +17,38 @@
   box-sizing: border-box;
 }
 
+/* ---------- STACKED IMAGE & TEXT COLUMN ---------- */
+.column {
+  display: flex;
+  flex-direction: column;     /* stack image above text */
+  justify-content: flex-start;
+  align-items: center;         /* center text horizontally */
+  flex-shrink: 0;              /* stay same width as other panels */
+  height: var(--panel-image-height);   /* match height of other image panels */
+  box-sizing: border-box;
+  margin: 0 30px;
+}
+
+.column .panel-col-img img {
+  height: calc(var(--panel-image-height) - 120px);  
+  width: auto;
+  object-fit: cover;
+  display: block;
+}
+
+.column .panel-col-text {
+  width: 900px;
+  text-align: center;          /* center text below image */
+  margin-top: 15px;
+  font-style: italic;
+  font-weight: 500;
+  height: 150px;               /* matches the remaining column height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
 /* ---------- STACKED IMAGE COLUMN ---------- */
 .panel-col-image, .panel-col-image-last {
   display: flex;
@@ -39,23 +71,6 @@
 .panel-col-image-last {
   margin-right: 10px;
 }
-
-/* ------------------ LINER TEXT PANEL ------------------ */
-.panel-liner-text {
-  width: 600px;                /* keep your chosen width */
-  flex-shrink: 0;              /* don't shrink inside horizontal track */
-  height: var(--panel-image-height);   /* match image column height */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;   /* <-- pushes content to the bottom, lining up with image bottoms */
-  align-items: flex-start;
-  box-sizing: border-box;
-  margin: 0 15px;
-  font-weight: 500;
-  font-style: italic;
-  text-align: justify;
-  padding-bottom: 30px;
-}
 }
 
 /* ===================== MOBILE LAYOUT ===================== */
@@ -63,7 +78,7 @@
 @media (max-width: 899px) {
 
 /* ---------- IMAGE PANELS & STACKED IMAGE COLUMN ---------- */
-.panel-image, .panel-col-image, .panel-col-image-last {
+.panel-image, .column .panel-col-img, .panel-col-image, .panel-col-image-last {
   width: 100% !important;
   max-width: 100% !important;
   margin: 0 0 7px 0;
@@ -71,7 +86,7 @@
   display: block;
 }
 
-.panel-image img, .panel-col-image img, .panel-col-image-last img {
+.panel-image img, .column .panel-col-img img, .panel-col-image img, .panel-col-image-last img {
   width: 100% !important;
   height: auto !important;                   /* natural height, no forced tall hero */
   object-fit: cover;
@@ -83,10 +98,9 @@
   margin-bottom: 7px;
 }
 
-/* ------------------ LINER TEXT PANEL ------------------ */
-.panel-liner-text {
+.column .panel-col-text {
   text-align: center;
-  margin: 30px 15px;
+  margin: 30px 30px;
   font-weight: 500;
   font-style: italic;
 }
