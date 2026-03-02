@@ -99,9 +99,9 @@
 }
 
 .resume-link a:hover {
-  opacity: 0.6;
-  color: var(--accent);
+  opacity: 0.9;
   font-weight: 600;
+  text-decoration: underline;
 }
 
 /* portrait */
@@ -504,3 +504,4 @@
   }
 }
 }
+
